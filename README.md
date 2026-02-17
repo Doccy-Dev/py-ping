@@ -9,3 +9,5 @@ This repo is for me to apply what I'm learning at UniSQ to try and make a secure
 ## help
 
 im still learning if you see something that could look better let me know!
+
+### thank you for reading 

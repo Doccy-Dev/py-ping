@@ -1,10 +1,27 @@
 # py-ping
-a python based networking tool 
 
-## Overview
+> [!NOTE]
+> **Academic & Development Status**
+> `py-ping` is a project developed by @doccy-dev as part of undergraduate studies at UniSQ. It serves as a practical application of Python-based networking, focusing on **Strict Confinement** and secure system interfacing within the Ubuntu ecosystem.
 
-This repo is for me to apply what I'm learning at UniSQ to try and make a secure networking tool. This semester we are learning **Python** and hope to have a functional app by the end of the semester.
+**py-ping** is a modern, high-performance network diagnostic suite. Unlike traditional ping tools, `py-ping` is designed to run in a fully sandboxed environment, demonstrating that robust networking utilities can be both powerful and secure.
 
+## Key Features
+
+* **Low-Level Probing**: Native ICMP implementation using raw sockets.
+* **Snap-First Design**: Built for **Strict Confinement**, ensuring the tool only accesses the network and nothing else.
+* **Structured Diagnostics**: Export network health data in `.json` for integration with monitoring pipelines.
+* **Rich Visualization**: Terminal-based HUD for real-time latency and packet loss tracking.
+
+## Installation (Snap)
+
+Since `py-ping` uses raw sockets for ICMP packets, it requires specific interface connections after installation:
+
+```bash
+sudo snap install py-ping --edge
+sudo snap connect py-ping:network-observe
+sudo snap connect py-ping:network-bind
+```
 
 ## help
 

@@ -13,6 +13,31 @@
 * **Structured Diagnostics**: Export network health data in `.json` for integration with monitoring pipelines.
 * **Rich Visualization**: Terminal-based HUD for real-time latency and packet loss tracking.
 
+## Project Structure
+_Mostly placeholders still!_
+
+```
+py-ping
+│   .gitignore
+│   LICENSE
+│   README.md
+│   requirements.txt
+│   ROADMAP.md
+│   setup.py
+│   snapcraft.yaml
+│   
+└───src
+    │   config.py
+    │   hud.py
+    │   logger.py
+    │   main.py
+    │   
+    └───os
+            apple.py
+            linux.py
+            windows.py
+```
+
 ## Installation (Snap)
 
 Since `py-ping` uses raw sockets for ICMP packets, it requires specific interface connections after installation:

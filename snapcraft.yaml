@@ -1,0 +1,40 @@
+name: py-ping
+version: '0.1.0'
+summary: a netwrork ping tool written in python
+description: |
+  PyPing is a simple network utility for pinging hosts and measuring latency.
+
+# 'devel' allows for iterative testing; switch to 'stable' for Store release
+grade: devel 
+
+# 'strict' confinement ensures the app runs in a secure sandbox.
+# Access to hardware is managed via the 'plugs' defined below.
+confinement: strict 
+
+# core24 corresponds to the Ubuntu 24.04 LTS runtime environment
+base: core24 
+
+apps:
+  py-ping:
+    # Points to the executable created by setuptools/entry_points
+    command: bin/py-ping
+    # Interfaces (plugs) allow the snap to "break out" of the sandbox 
+    # to read specific system telemetry.
+    plugs:
+      - hardware-observe # Required for /sys/class/hwmon (thermals)
+      - system-observe   # Required for /proc/meminfo and hardware IDs
+      - mount-observe    # Required for disk/partition metadata
+
+parts:
+  py-ping:
+    # The python plugin handles venv creation and dependency resolution
+    plugin: python
+    source: .
+    # These are bundled inside the snap, ensuring no system-level conflicts
+    python-packages:
+      - psutil
+      - jsonschema
+      - rich # added for the new console UI
+    # Ensure build dependencies are present in the build environment
+    build-packages:
+      - python3-setuptools

@@ -1,0 +1,1 @@
+# small config helper for py-ping, will be used to store user settings and preferences in the future, but for now its just a placeholder.
